@@ -60,20 +60,19 @@ var AudioRecorder = {
       return AudioRecorderManager.prepareRecordingAtPath(path, recordingOptions);
     }
   },
-  startRecording: function() {
-    return AudioRecorderManager.startRecording();
+  startRecording: function(path) {
+    return AudioRecorderManager.startRecording(path);
   },
-  pauseRecording: function() {
-    return AudioRecorderManager.pauseRecording();
+  pauseRecording: function(path) {
+    return AudioRecorderManager.pauseRecording(path);
   },
-  resumeRecording: function() {
-    return AudioRecorderManager.resumeRecording();
+  resumeRecording: function(path) {
+    return AudioRecorderManager.resumeRecording(path);
   },
-  stopRecording: function() {
-    return AudioRecorderManager.stopRecording();
+  stopRecording: function(path) {
+    return AudioRecorderManager.stopRecording(path);
   },
   checkAuthorizationStatus: AudioRecorderManager.checkAuthorizationStatus,
-  requestAuthorization: AudioRecorderManager.requestAuthorization,
   removeListeners: function() {
     if (this.progressSubscription) this.progressSubscription.remove();
     if (this.finishedSubscription) this.finishedSubscription.remove();
