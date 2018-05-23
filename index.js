@@ -12,7 +12,7 @@ import ReactNative, {
 var AudioRecorderManager = NativeModules.AudioRecorderManager;
 
 var AudioRecorder = {
-  prepareRecordingAtPath: function(path, options) {
+  prepareRecordingAtPath: async function(path, options) {
     if (this.progressSubscription) this.progressSubscription.remove();
     this.progressSubscription = NativeAppEventEmitter.addListener('recordingProgress',
       (data) => {
@@ -60,16 +60,16 @@ var AudioRecorder = {
       return AudioRecorderManager.prepareRecordingAtPath(path, recordingOptions);
     }
   },
-  startRecording: function(path) {
+  startRecording: async function(path) {
     return AudioRecorderManager.startRecording(path);
   },
-  pauseRecording: function(path) {
+  pauseRecording: async function(path) {
     return AudioRecorderManager.pauseRecording(path);
   },
-  resumeRecording: function(path) {
+  resumeRecording: async function(path) {
     return AudioRecorderManager.resumeRecording(path);
   },
-  stopRecording: function(path) {
+  stopRecording: async function(path) {
     return AudioRecorderManager.stopRecording(path);
   },
   checkAuthorizationStatus: AudioRecorderManager.checkAuthorizationStatus,
